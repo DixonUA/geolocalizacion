@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function obtenerUbicacion() {
+            if(navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition
+                (mostrarubicacion);
+            } else {
+                alert("La geolocalización no está soportada por este navegador");
+            }
+        }
+        function mostrarubicacion(posicion) {
+            var latitud = posicion.coords.latitude;
+            var longitud = posicion.coords.longitude;
+            var localizacion;
+
+            localizacion = 'https://www.google.com/maps/place/' + latitud + ',' + longitud
+            document.getElementById('latitud').innerHTML = latitud
+            document.getElementById('longitud').innerHTML = longitud
+            document.getElementById('localizacion').innerHTML = localizacion
+        }
+    </script>
+</head>
+<body onload="obtenerUbicacion();">
+    <p>Latitud</p>
+    <p id="latitud"></p>
+    <p>Longitud</p>
+    <p id="longitud"></p>
+    <p>Enlace Google Maps</p>
+    <href id="localizacion"></href>
+</body>
+</html>
