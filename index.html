@@ -8,7 +8,7 @@
     <script>
         function obtenerUbicacion() {
             if(navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition
+                navigator.geolocation.watchPosition
                 (mostrarubicacion);
             } else {
                 alert("La geolocalización no está soportada por este navegador");
